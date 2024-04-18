@@ -19,7 +19,11 @@ function summElementsWorker(...arr) {
 function differenceMaxMinWorker(...arr) {
   let min = Math.min(...arr);
   let max = Math.max(...arr);
-  return max - min || 0;
+    if(arr.length === 0){
+      return 0;
+    } else {
+      return max - min;
+           }
 }
 
 function differenceEvenOddWorker(...arr) {
