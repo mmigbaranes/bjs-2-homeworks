@@ -27,6 +27,6 @@ function Student(name, gender, age) {
     this.exclude = function(reason) {
       delete this.subject;
       delete this.marks;
-      this.exclude = reason;
+      this.excluded = reason;
     };
 }
