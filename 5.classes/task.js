@@ -64,3 +64,25 @@ class Magazine extends PrintEditionItem {
           this.type = "detective";
           }
   }
+
+  class Library {
+    constructor(name){
+        this.name = name;
+        this.books = [];
+    }
+    addBook(book){
+        if(book.state > 30){
+            this.books.push(book);
+        }
+    }
+    findBookBy(type, value){
+        let result = this.books.find(book => book[type] ===value);
+        return result || null;
+    }
+    giveBookByName(bookName){
+        let result = this.books.find(book => book.name === bookName);
+        let index = this.books.indexOf(result);
+        this.books.splice(index, 1);
+      return result || null;
+    }
+}
