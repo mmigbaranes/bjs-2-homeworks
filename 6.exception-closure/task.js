@@ -3,9 +3,9 @@
         if (Number.isNaN(count)){
             throw new Error("Невалидное значение");
         }
-        return +(count);
+        return count;
 }
-function validateCount(){
+function validateCount(arg){
     try{
         return parseCount(arg);
     }catch(error){
