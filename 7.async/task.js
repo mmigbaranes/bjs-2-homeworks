@@ -21,7 +21,7 @@ class AlarmClock {
     }
 
     removeClock(time) {
-      return this.alarmCollection.filter(items => items.time === time);
+      this.alarmCollection.filter(item => item.time === time);
       }
    
     getCurrentFormattedTime() {
