@@ -4,7 +4,8 @@ class AlarmClock {
       this.intervalId = null;
     }
     addClock(time, callback) {
-      this.time = new Date('') // проверить правильность ввода времени (правильный ли код)
+      this.time = new Date("HH:MM"); // проверить правильность ввода времени (правильный ли код)
+      this.callback = callback;
       if (time === undefined || callback === undefined) {
         throw new Error('Отсутствуют обязательные аргументы');
       }
@@ -19,11 +20,14 @@ class AlarmClock {
     }
     removeClock(time) {
       if (this.alarmCollection.filter(item => item.time === time)) {
-        delete this.alarmCollection.find(item => item.time === time);
+        this.alarmCollection.find(item => item.time === time);
       }
     }
     getCurrentFormattedTime() {
-      return new Date(toString('HH:MM')); // проверить правильность кода
+      return new Date().toLocaleTimeString("ru-Ru", {
+      hour: "2-digit",
+      minute: "2-digit",
+    }); // проверить правильность кода
     }
     start() {
       if (this.intervalId === null) {
